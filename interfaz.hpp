@@ -8,6 +8,7 @@ using namespace std;
 
 void inicializarNcurses();
 int menuPrincipal();
+int solicitarNumeroCaballos();
 int menuFinal(int yBase);
 
 #endif

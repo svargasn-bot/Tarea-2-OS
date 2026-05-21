@@ -21,18 +21,18 @@ int main() {
     while(ejecutando) {
         if(menuPrincipal() == 1) break; 
 
-        int ancho = 80, alto = 20;
+        int numCaballos = solicitarNumeroCaballos();
+        int ancho = 80;
+        int alto = 10 + 2 * numCaballos;
         int metaX = ancho / 2;
         
-        vector<pair<int, int>> camino = generarCamino(ancho, alto, metaX);
+        vector<pair<int, int>> camino = generarCamino(ancho, alto, metaX, numCaballos);
 
-        // Inicializamos lugar_llegada en 0 (no ha terminado)
-        vector<Caballo> caballos = {
-            {"Caballo 1", 0, 1, 0, 0}, 
-            {"Caballo 2", 0, 2, 0, 0}, 
-            {"Caballo 3", 0, 3, 0, 0},
-            {"Caballo 4", 0, 4, 0, 0}
-        };
+        // Inicializamos los caballos dinámicamente
+        vector<Caballo> caballos;
+        for (int i = 1; i <= numCaballos; i++) {
+            caballos.push_back({"Caballo " + to_string(i), 0, i, 0, 0});
+        }
 
         int contadorLugares = 1; // Controla el podio (1 = Primer lugar, 2 = Segundo...)
         int totalCaballos = caballos.size();
@@ -40,7 +40,7 @@ int main() {
         // El juego sigue corriendo MIENTRAS queden caballos por cruzar la meta
         while (contadorLugares <= totalCaballos) {
             clear();
-            dibujarPista(ancho, alto);
+            dibujarPista(ancho, alto, numCaballos);
             
             for (auto &c : caballos) {
                 // Solo avanzan los caballos que NO han terminado la carrera

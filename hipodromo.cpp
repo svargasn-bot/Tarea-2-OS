@@ -3,19 +3,20 @@
 
 using namespace std;
 
-vector<pair<int, int>> generarCamino(int ancho, int alto, int metaX) {
+vector<pair<int, int>> generarCamino(int ancho, int alto, int metaX, int numCaballos) {
     vector<pair<int, int>> camino;
+    int yBottom = alto - numCaballos + 1;
     
     for (int x = metaX; x < ancho - 10; x++) camino.push_back({x, 2});
-    for (int y = 3; y < alto - 3; y++) camino.push_back({ancho - 10, y});
-    for (int x = ancho - 10; x >= 10; x--) camino.push_back({x, alto - 3});
-    for (int y = alto - 4; y >= 3; y--) camino.push_back({10, y});
+    for (int y = 3; y < yBottom; y++) camino.push_back({ancho - 10, y});
+    for (int x = ancho - 10; x >= 10; x--) camino.push_back({x, yBottom});
+    for (int y = yBottom - 1; y >= 3; y--) camino.push_back({10, y});
     for (int x = 10; x < metaX; x++) camino.push_back({x, 2});
     
     return camino;
 }
 
-void dibujarPista(int ancho, int alto) {
+void dibujarPista(int ancho, int alto, int numCaballos) {
     for (int i = 5; i < ancho - 4; i++) {
         mvprintw(1, i, "="); 
         mvprintw(alto + 1, i, "=");
@@ -31,7 +32,7 @@ void dibujarPista(int ancho, int alto) {
     mvprintw(5, ancho / 2, "A");
 
     int margenH = 15;
-    int margenV = 6;
+    int margenV = numCaballos + 2;
     for (int i = margenH; i < ancho - margenH; i++) {
         mvprintw(margenV, i, "=");
         mvprintw(alto - margenV + 2, i, "=");

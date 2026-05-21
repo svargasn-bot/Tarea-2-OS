@@ -7,8 +7,8 @@
 
 using namespace std; 
 
-vector<pair<int, int>> generarCamino(int ancho, int alto, int metaX);
-void dibujarPista(int ancho, int alto);
+vector<pair<int, int>> generarCamino(int ancho, int alto, int metaX, int numCaballos);
+void dibujarPista(int ancho, int alto, int numCaballos);
 void dibujarCaballos(const vector<pair<int, int>> &camino, const vector<Caballo> &caballos);
 
 #endif

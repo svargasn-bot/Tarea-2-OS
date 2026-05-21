@@ -36,6 +36,24 @@ int menuPrincipal() {
     }
 }
 
+int solicitarNumeroCaballos() {
+    int num = 4;
+    int yMax, xMax;
+    while(true) {
+        getmaxyx(stdscr, yMax, xMax);
+        clear();
+        box(stdscr, 0, 0);
+        mvprintw(yMax / 2 - 2, (xMax / 2) - 15, "Seleccione cantidad de caballos (2-10):");
+        mvprintw(yMax / 2, (xMax / 2) - 2, "< %d >", num);
+        mvprintw(yMax / 2 + 2, (xMax / 2) - 12, "Presione ENTER para confirmar");
+        
+        int input = getch();
+        if(input == KEY_LEFT && num > 2) num--;
+        else if(input == KEY_RIGHT && num < 10) num++;
+        else if(input == '\n') return num;
+    }
+}
+
 int menuFinal(int yBase) {
     int opcion = 0;
     string ops[2] = {" Volver ", " Salir "};
