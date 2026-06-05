@@ -9,12 +9,11 @@ struct Caballo {
     int pos;     
     int numero;  
     int vueltas; 
-    int lugar_llegada; // <-- NUEVO: Guarda el orden en que llegó (1º, 2º, etc.)
+    int lugar_llegada; 
+    int distancia_recorrida; 
 };
 
 std::string simboloCaballo(int dx, int dy, int numero);
-
-// Modificamos la función: ahora procesa quiénes cruzan en cada ciclo
-void registrarLlegadas(std::vector<Caballo> &caballos, int &contadorLugares, int vueltasMeta);
+int calcularProbabilidadAvance(); 
 
 #endif

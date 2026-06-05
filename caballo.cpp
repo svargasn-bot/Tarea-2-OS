@@ -10,13 +10,10 @@ string simboloCaballo(int dx, int dy, int numero) {
     
     return (numero < 10) ? "0" + to_string(numero) : to_string(numero);
 }
-
-void registrarLlegadas(vector<Caballo> &caballos, int &contadorLugares, int vueltasMeta) {
-    for (auto &c : caballos) {
-        // Si el caballo completó las vueltas y aún no se le ha asignado puesto
-        if (c.vueltas >= vueltasMeta && c.lugar_llegada == 0) {
-            c.lugar_llegada = contadorLugares;
-            contadorLugares++; // El siguiente que cruce tendrá el puesto posterior
-        }
+// Funcion para modificar la probabilidad, cambiando el parametro de la derecha del rand
+int calcularProbabilidadAvance() {
+    if ((rand() % 100) < 50) {
+        return 1;
     }
+    return 0;
 }

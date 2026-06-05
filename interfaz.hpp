@@ -7,8 +7,8 @@
 using namespace std;
 
 void inicializarNcurses();
-int menuPrincipal();
-int solicitarNumeroCaballos();
+// Ahora recibe referencias para configurar la carrera antes de iniciar
+int menuPrincipal(int &vueltas, int &ancho, int &numCaballos); 
 int menuFinal(int yBase);
 
 #endif
