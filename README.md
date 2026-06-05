@@ -1,5 +1,5 @@
 # Tarea 2 OS
-Comando de compilación :g++ main.cpp caballo.cpp hipodromo.cpp interfaz.cpp -o carrera -lncurses
+Comando de compilación :g++ main.cpp caballo.cpp hipodromo.cpp interfaz.cpp -o carrera -lncurses -pthread -o tarea2
 Comando de ejecución: ./carrera
 
 Integrantes de grupo:
@@ -22,11 +22,11 @@ El código está estructurado bajo principios de ingeniería de software para ma
 * **Módulo Caballo (`caballo.hpp` / `caballo.cpp`):** Define la estructura de los competidores, su representación visual según la dirección del movimiento y la lógica para registrar el orden de llegada en el podio.
 * **Módulo Hipódromo (`hipodromo.hpp` / `hipodromo.cpp`):** Maneja la geometría de la pista, el cálculo de las coordenadas del circuito (camino) y el renderizado de los elementos gráficos en pantalla.
 * **Módulo Interfaz (`interfaz.hpp` / `interfaz.cpp`):** Encapsula la inicialización de la librería NCurses y gestiona las pantallas del menú principal y post-carrera.
-* **Orquestador Principal (`main.cpp`):** Coordina el flujo macro de la aplicación, los ciclos de la carrera y la actualización de los estados.
+* **Ejecucion Principal (`main.cpp`):** Coordina el flujo macro de la aplicación, los ciclos de la carrera y la actualización de los estados.
 
 ## Compilación y Ejecución (Linux / WSL)
 
 Para compilar y ejecutar el proyecto en un entorno Linux con el compilador `g++`, asegúrate de tener instaladas las librerías de desarrollo de ncurses (`libncurses5-dev`) y ejecuta el siguiente comando en la terminal:
 
 ```bash
-g++ main.cpp caballo.cpp hipodromo.cpp interfaz.cpp -o carrera -lncurses && ./carrera
+g++ main.cpp caballo.cpp hipodromo.cpp interfaz.cpp -o carrera -lncurses -pthread -o tarea2
