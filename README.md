@@ -1,6 +1,6 @@
 # Tarea 2 OS
 Comando de compilación :g++ main.cpp caballo.cpp hipodromo.cpp interfaz.cpp -o carrera -lncurses -pthread -o tarea2
-Comando de ejecución: ./carrera
+Comando de ejecución: ./tarea2
 
 Integrantes de grupo:
 - Vicente Arias
